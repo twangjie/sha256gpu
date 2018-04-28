@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <title>WebGL2 SHA256 GPU</title>
+  <meta charset="utf-8" />
+  <style>
+    body, textarea, input {
+      font-family: monospace;
+      font-size: 13px;
+    }
+    #txtLog {
+      width: 100%;
+      height: 300px;
+      border: none;
+      outline: none;
+    }
+    #txtQ, #txtA, #progBar {
+      width: 300px;
+    }
+
+    #canvas {   /* for debug */
+      transform: scale(10);
+      transform-origin: 0 0;
+      image-rendering: pixelated;
+    }
+    fieldset {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>WebGL2 SHA256 GPU</h1>
+  <pre>SHA256(Q + A) = 00000000...</pre>
+
+  <fieldset>
+    <legend>Input</legend>
+    <div>
+      Q: <input type="text" id="txtQ" maxlength="24">
+      <button id="btnRefresh">Refresh</button>
+    </div>
+    <div>
+      A: <input type="text" id="txtA" readonly>
+      <button id="btnMine">Run</button>
+      <button id="btnStop">Stop</button>
+    </div>
+    <!-- <div>
+      Thread: <input type="number" id="txtThread" value="1024">
+    </div> -->
+    <div>
+      Speed: <span id="labSpeed"></span> hash/s
+    </div>
+    <div>
+      <progress id="progBar" value="0" max="4294967295">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Output</legend>
+    <div>
+      <textarea id="txtLog"></textarea>
+    </div>
+  </fieldset>
+
+  <script src="main.js?v=4"></script>
+
+  <!-- for test -->
+  <script src="sha256.js"></script>
+</body>
+</html>
